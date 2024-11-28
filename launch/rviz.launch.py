@@ -15,7 +15,7 @@ def generate_launch_description():
                 package= 'rviz2',
                 executable= 'rviz2',
                 name= 'rviz',
-                arguments= ['--display-config', os.path.join(share_dir, 'rviz2', 'custom_rviz2.rviz')],
+                arguments= ['--display-config', os.path.join(share_dir, 'rviz2', 'zed2i.rviz')],
                 output= 'screen'
             )
         ]

@@ -13,7 +13,7 @@ Panels:
         - /TF1/Tree1
         - /ZedPointCloud1
       Splitter Ratio: 0.5423280596733093
-    Tree Height: 725
+    Tree Height: 365
   - Class: rviz_common/Selection
     Name: Selection
   - Class: rviz_common/Tool Properties
@@ -242,25 +242,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 8.1475191116333
+      Distance: 25.060277938842773
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 16.685009002685547
-        Y: 4.797365665435791
-        Z: 3.024986505508423
+        X: -3.228893756866455
+        Y: 19.825485229492188
+        Z: -3.853139638900757
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.7247951030731201
+      Pitch: 0.30479538440704346
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.4620797634124756
+      Yaw: 4.767096519470215
     Saved: ~
 Window Geometry:
   Displays:

@@ -26,7 +26,7 @@ cd ..
 
 ## Open Docker Container
 
-> **Note:** You can connect multiple terminals to the same container by executing the `run_docker.sh` script again.
+> **Note:** You can connect multiple terminals to the same container by executing the `run_docker.sh` script in each terminal.
 
 This will build and run the container. Building the container the first is expected to take a bit of time (~15 minutes)
 Run the following to open the docker container:
@@ -52,3 +52,11 @@ Here is the setup I use:
 1. Terminal 1 within Container: `source $ELEVATION_MAPPING_DIR/install/setup.bash && ros2 launch elevation_mapping rviz.launch.py`
 2. Terminal 2 within Container: `source $ELEVATION_MAPPING_DIR/install/setup.bash && ros2 launch elevation_mapping zed2i.launch.py`
 3. Terminal 3 outside Container: `ros2 launch zed_wrapper zed_camera.launch.py camera_model:=zed2i`
+
+# Credit
+
+Credit mostly to the Nvidia Isaac Ros Common repo for the docker setup. 
+https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common
+
+I have modified (mostly removed extra bits) and simplified it down from the Nvidia Isaac Common. I also added nice features like grabbing all the package.xml files from the local copy of the repo and running rosdep install on them, and I added persistent bash histories.
+

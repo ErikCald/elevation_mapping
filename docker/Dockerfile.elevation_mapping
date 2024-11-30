@@ -16,14 +16,13 @@ ARG KINDR_REPO_NAME="kindr_ros"
 USER root
 
 RUN apt-get update && apt-get install -y \ 
-    git \
-    python3-colcon-common-extensions \
     ros-humble-grid-map
 
 # Install jtop on Jetsons
-RUN if [ "$(uname -m)" == "aarch64" ]; then \
-        python3 -m pip install -U jetson-stats \
-    fi
+RUN \
+   if [ "$(uname -m)" == "aarch64" ]; then \
+      python3 -m pip install -U jetson-stats; \
+   fi
 
 USER ${USERNAME}
 
@@ -35,7 +34,9 @@ RUN mkdir ~/repos ; cd ~/repos && \
     cmake .. -DUSE_CMAKE=true && \
     sudo make install
 
-# Copy elevation_mapping_ros2 and kindr_ros to temporary workspace and run rosdep
+##
+## Copy elevation_mapping_ros2 and kindr_ros to temporary workspace and run rosdep install
+##
         
 USER ${USERNAME}
 
@@ -49,11 +50,11 @@ COPY --from=em_repo ./ ${ROSDEP_TEMPORARY_REPOS}/src/${EM_REPO_NAME}
 COPY --from=kindr_ros_repo ./ ${ROSDEP_TEMPORARY_REPOS}/src/${KINDR_REPO_NAME}
 
 # Install dependencies with rosdep. Continues even if there are errors.
-# Log of the errors are saved in /workspaces/rosdep_err_${REPO_NAME}.log in the container
+# Log of the errors are saved in /workspaces/rosdep_err_${EM_REPO_NAME}.log in the container
 RUN --mount=type=cache,target=/var/cache/apt \
     sudo apt update && \
     cd ${ROSDEP_TEMPORARY_REPOS} && \
-    rosdep install --from-paths src/ --ignore-src -r -y 2>/workspaces/rosdep_err_${REPO_NAME}.log | tee /workspaces/rosdep_log_${REPO_NAME}.log; \
+    rosdep install --from-paths src/ --ignore-src -r -y 2>/workspaces/rosdep_err_${EM_REPO_NAME}.log | tee /workspaces/rosdep_log_${EM_REPO_NAME}.log; \
     sudo rm -rf ${ROSDEP_TEMPORARY_REPOS}; \
     exit 0
 

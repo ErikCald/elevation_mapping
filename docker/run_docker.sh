@@ -12,15 +12,14 @@ EM_REPO_DIR=$( cd "$SCRIPT_DIR/.." && pwd)
 SRC_DIR=$( cd "$EM_REPO_DIR/.." && pwd)
 WORKSPACE_DIR=$( cd "$SRC_DIR/.." && pwd)
 WORKSPACE_NAME=$(basename "$WORKSPACE_DIR")
-DOCKERFILE_DIR="$WORKSPACE_DIR/docker"
 
 USER=$(id -u -n)
 PLATFORM="$(uname -m)"
 CONTAINER_USER=dev
 
-EM_REPO_NAME="elevation_mapping_ros2"
+EM_REPO_NAME=$(basename "$EM_REPO_DIR")
 KINDR_REPO_NAME="kindr_ros"
-
+DOCKERFILE_DIR="$WORKSPACE_DIR/src/$EM_REPO_NAME/docker"
 
 #######################################################################################
 ### Constants 
@@ -56,23 +55,23 @@ print_constants()
     echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 }
 
-if [ ! -d "$DOCKERFILE_DIR" ]; then
-    echo "Missing docker dir at $DOCKERFILE_DIR"
-    exit 1
-fi
-
 if [ ! -d "$WORKSPACE_DIR" ]; then
     echo "Missing workspace dir at $WORKSPACE_DIR"
-    exit 2
+    exit 1
 fi
 
 if [ ! -d "$WORKSPACE_DIR/src/$EM_REPO_NAME" ]; then
     echo "Missing elevation_mapping_ros2 repo at $WORKSPACE_DIR/src/$EM_REPO_NAME"
-    exit 3
+    exit 2
 fi
 
 if [ ! -d "$WORKSPACE_DIR/src/$KINDR_REPO_NAME" ]; then
     echo "Missing kindr ros repo at $WORKSPACE_DIR/src/$KINDR_REPO_NAME"
+    exit 3
+fi
+
+if [ ! -d "$DOCKERFILE_DIR" ]; then
+    echo "Missing docker dir at $DOCKERFILE_DIR"
     exit 4
 fi
 

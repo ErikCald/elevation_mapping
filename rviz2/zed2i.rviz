@@ -6,14 +6,9 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /ElevationMap1
-        - /ElevationMapRaw1
-        - /ElevationMapRaw1/Topic1
-        - /TF1
         - /TF1/Tree1
-        - /ZedPointCloud1
       Splitter Ratio: 0.5423280596733093
-    Tree Height: 365
+    Tree Height: 725
   - Class: rviz_common/Selection
     Name: Selection
   - Class: rviz_common/Tool Properties
@@ -58,10 +53,10 @@ Visualization Manager:
       Class: grid_map_rviz_plugin/GridMap
       Color: 200; 200; 200
       Color Layer: elevation
-      Color Transformer: GridMapLayer
-      Enabled: true
+      Color Transformer: IntensityLayer
+      Enabled: false
       Height Layer: elevation
-      Height Transformer: GridMapLayer
+      Height Transformer: Layer
       History Length: 1
       Invert Rainbow: false
       Max Color: 255; 255; 255
@@ -78,21 +73,21 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /elevation_map
       Use Rainbow: true
-      Value: true
+      Value: false
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Class: grid_map_rviz_plugin/GridMap
       Color: 200; 200; 200
-      Color Layer: elevation
-      Color Transformer: GridMapLayer
-      Enabled: false
+      Color Layer: normal_vectors_z
+      Color Transformer: IntensityLayer
+      Enabled: true
       Height Layer: elevation
       Height Transformer: GridMapLayer
       History Length: 1
       Invert Rainbow: false
-      Max Color: 255; 255; 255
+      Max Color: 0; 255; 0
       Max Intensity: 10
-      Min Color: 0; 0; 0
+      Min Color: 255; 0; 0
       Min Intensity: 0
       Name: ElevationMapRaw
       Show Grid Lines: true
@@ -104,7 +99,7 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /elevation_map_raw_post
       Use Rainbow: true
-      Value: false
+      Value: true
     - Class: rviz_default_plugins/TF
       Enabled: true
       Frame Timeout: 15
@@ -242,25 +237,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 25.060277938842773
+      Distance: 24.018983840942383
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -3.228893756866455
-        Y: 19.825485229492188
-        Z: -3.853139638900757
+        X: 15.885583877563477
+        Y: 1.341249942779541
+        Z: -5.580367088317871
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.30479538440704346
+      Pitch: 0.3747949004173279
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 4.767096519470215
+      Yaw: 3.2420945167541504
     Saved: ~
 Window Geometry:
   Displays:

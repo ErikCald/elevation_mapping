@@ -7,6 +7,7 @@ Panels:
         - /Global Options1
         - /Status1
         - /TF1/Tree1
+        - /TraversibilityMap1
       Splitter Ratio: 0.5423280596733093
     Tree Height: 725
   - Class: rviz_common/Selection
@@ -74,32 +75,6 @@ Visualization Manager:
         Value: /elevation_map
       Use Rainbow: true
       Value: false
-    - Alpha: 1
-      Autocompute Intensity Bounds: true
-      Class: grid_map_rviz_plugin/GridMap
-      Color: 200; 200; 200
-      Color Layer: normal_vectors_z
-      Color Transformer: IntensityLayer
-      Enabled: true
-      Height Layer: elevation
-      Height Transformer: GridMapLayer
-      History Length: 1
-      Invert Rainbow: false
-      Max Color: 0; 255; 0
-      Max Intensity: 10
-      Min Color: 255; 0; 0
-      Min Intensity: 0
-      Name: ElevationMapRaw
-      Show Grid Lines: true
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /elevation_map_raw_post
-      Use Rainbow: true
-      Value: true
     - Class: rviz_default_plugins/TF
       Enabled: true
       Frame Timeout: 15
@@ -131,16 +106,17 @@ Visualization Manager:
       Tree:
         map:
           odom:
-            zed_camera_link:
-              zed_camera_center:
-                zed_left_camera_frame:
-                  zed_imu_link:
-                    {}
-                  zed_left_camera_optical_frame:
-                    {}
-                zed_right_camera_frame:
-                  zed_right_camera_optical_frame:
-                    {}
+            {}
+        zed_camera_link:
+          zed_camera_center:
+            zed_left_camera_frame:
+              zed_imu_link:
+                {}
+              zed_left_camera_optical_frame:
+                {}
+            zed_right_camera_frame:
+              zed_right_camera_optical_frame:
+                {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -191,10 +167,36 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /zed/zed_node/left/image_rect_color
       Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: false
+      Class: grid_map_rviz_plugin/GridMap
+      Color: 200; 200; 200
+      Color Layer: traversability
+      Color Transformer: IntensityLayer
+      Enabled: true
+      Height Layer: elevation
+      Height Transformer: Layer
+      History Length: 1
+      Invert Rainbow: true
+      Max Color: 0; 255; 0
+      Max Intensity: 1
+      Min Color: 170; 0; 0
+      Min Intensity: 0
+      Name: TraversibilityMap
+      Show Grid Lines: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /trasversability_map
+      Use Rainbow: true
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: map
+    Fixed Frame: zed_camera_center
     Frame Rate: 30
   Name: root
   Tools:
@@ -237,25 +239,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 24.018983840942383
+      Distance: 14.589118957519531
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 15.885583877563477
-        Y: 1.341249942779541
-        Z: -5.580367088317871
+        X: 5.028746128082275
+        Y: -3.1605679988861084
+        Z: 0.9182746410369873
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.3747949004173279
+      Pitch: 0.2847954034805298
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.2420945167541504
+      Yaw: 2.597073554992676
     Saved: ~
 Window Geometry:
   Displays:

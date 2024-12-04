@@ -15,15 +15,12 @@ def generate_launch_description():
         "robots/zed2i_robot.yaml",
         "elevation_maps/zed2i_map.yaml",
         "sensor_processors/zed2i_processor.yaml",
-        "postprocessing/postprocessor_pipeline.yaml",
+        "postprocessing/traversability_pipeline.yaml",
     ]
     for file in list_files:
         if not os.path.isfile(os.path.join(config_dir, file)):
             raise FileNotFoundError("File not found: " + os.path.join(config_dir, file))
         list_params.append(os.path.join(config_dir, file))
-    
-    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-    print(list_params)
 
     return launch.LaunchDescription(
         [

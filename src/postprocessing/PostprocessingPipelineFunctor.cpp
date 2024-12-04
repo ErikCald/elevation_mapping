@@ -48,7 +48,7 @@ grid_map::GridMap PostprocessingPipelineFunctor::operator()(GridMap& inputMap) {
     RCLCPP_WARN_ONCE(nodeHandle_->get_logger(), "No postprocessing pipeline was configured. Forwarding the raw elevation map!");
     return inputMap;
   }
-  RCLCPP_INFO(nodeHandle_->get_logger(), "performing Post processing");
+  RCLCPP_DEBUG(nodeHandle_->get_logger(), "performing Post processing");
   grid_map::GridMap outputMap;
   if (not filterChain_.update(inputMap, outputMap)) {
     RCLCPP_ERROR(nodeHandle_->get_logger(), "Could not perform the grid map filter chain! Forwarding the raw elevation map!");

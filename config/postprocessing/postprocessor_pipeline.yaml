@@ -27,7 +27,7 @@ elevation_mapping:
           # input_layer: elevation_inpainted
           input_layer: elevation
           output_layers_prefix: normal_vectors_
-          radius: 0.45 # 1.5 times the map resolution is good
+          radius: 0.3 # 1.5 times the map resolution is good
           normal_vector_positive_axis: z
 
       #  Delete layers that are not needed to reduce bandwidth
